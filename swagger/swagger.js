@@ -1,11 +1,11 @@
-const swaggerAutogen = require('swagger-autogen')();
+import swaggerAutogen from "swagger-autogen";
 
 const doc = {
   info: {
     title: 'My API',
     description: 'Description'
   },
-  host: 'localhost:3000'
+  host: 'localhost:5000'
 };
 
 const outputFile = './swagger-output.json';

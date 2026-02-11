@@ -1,0 +1,147 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/admin/createClass": {
+      "post": {
+        "tags": [
+          "Class"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "name": {
+                  "type": "string",
+                  "example": "ssjsjsj"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/admin/deleteClass": {
+      "delete": {
+        "tags": [
+          "Class"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/admin/createAdminssion": {
+      "post": {
+        "tags": [
+          "Admission"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "runname": {
+                  "type": "string",
+                  "example": "dfghj"
+                },
+                "fatherName": {
+                  "type": "string",
+                  "example": "dfghjk"
+                },
+                "motherName": {
+                  "type": "string",
+                  "example": "rtyui"
+                },
+                "mobile": {
+                  "type": "number",
+                  "example": 5678
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "shsh"
+                },
+                "DOB": {
+                  "type": "string",
+                  "example": "sj"
+                },
+                "class_id": {
+                  "type": "number",
+                  "example": 1
+                },
+                "accademic": {
+                  "type": "string",
+                  "example": "shjashj"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}

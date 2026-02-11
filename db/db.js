@@ -5,16 +5,18 @@ const db = await mysql.createPool({
     password:"",
     database:"school",
     host:"localhost"
-})
+}).promise()
 
 const checkConnection  = async()=>{
     try {
         const conn = await  db.getConnection()
         console.log("The Db is connected")
-        conn.relsease()
+        // conn.relsease()
     } catch (error) {
         console.log('error', error)
     }
 }
 
+
+checkConnection()
 export default db
