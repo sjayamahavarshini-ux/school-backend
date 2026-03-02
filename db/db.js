@@ -1,9 +1,9 @@
 import mysql from "mysql2"
 
 const db = await mysql.createPool({
-    user:"root",
-    password:"",
-    database:"school",
+    user:"skyraantech_school_management",
+    password:"p?Da3q1)6]bUXURy",
+    database:"skyraantech_school_management",
     host:"localhost"
 }).promise()
 
