@@ -3,6 +3,7 @@ import { adminLogin, Createclass, deletes, getAllClass } from "../controller/adm
 import { createAdmission, CreateAttendance, CreateFaculty, createPayment, createStudent, DeleteAttendance, DeleteFaculty, deletePayment, deleteStudent, getAllAdmissions, getAllAttendance, getAllFaculty, getAllPayment, getAllStudent, getFacultyByDate, handelApprove } from "../controller/common.controller.js"
 
 const commonRouter = express.Router()
+
 commonRouter.post("/login",
     //#swagger.tags = ['Class']
     //#swagger.parameters['body'] = {in:'body',schema:{email:"",password:""}}

@@ -16,7 +16,7 @@ export const createAdmission = async (req, res) => {
                 status: result,
                 message: result ? "Admission is Updated" : "Admission is not Updated", updateAdmission
             })
-
+ 
 
 
         } else {
@@ -377,7 +377,7 @@ export const deletePayment = async (req, res) => {
 
 export const getAllPayment = async (req, res) => {
     try {
-        const [getAllPayment] = await db.query("SELECT p.id,c.id AS class_id,s.id AS stu_id,c.name As className,s.name As StudentName ,p.balance,p.total  AS total ,p.paid AS paid ,p.balance AS balance From student AS s LEFT JOIN  PAYMENT AS p ON s.id =p.stu_id LEFT JOIN class  AS c ON c.id=s.class_id")
+        const [getAllPayment] = await db.query("SELECT p.id,c.id AS class_id,s.id AS stu_id,c.name As className,s.name As StudentName ,p.balance,p.total  AS total ,p.paid AS paid ,p.balance AS balance From student AS s LEFT JOIN  payment AS p ON s.id =p.stu_id LEFT JOIN class  AS c ON c.id=s.class_id")
         const result = getAllPayment.length ? 1 : 0
         return res.status(200).json({ result: result, message: result ? " Payment List " : " Error Fetching Payment List", data: getAllPayment })
 

@@ -1,6 +1,7 @@
 import db from "../db/db.js"
 import bcrypt from "bcryptjs";
 import { generateToken } from "../utils/helper.js";
+
 export const adminLogin = async (req, res) => {
     try {
         const { email, password } = req.body;
