@@ -273,9 +273,10 @@ export const DeleteAttendance = async (req, res) => {
         if (!data) {
             return res.status(200).json({ status: 0, message: "NO user Data Found", data })
         }
-        const newState = data[0].status ? 0 : 1
+        
+        const newState = data[0].s_delete ? 0 : 1
         console.log('data', data)
-        const deleteAttendance = await db.query(" UPDATE Attendance SET status=? WHERE id=? ", [newState, id])
+        const deleteAttendance = await db.query(" UPDATE Attendance SET s_delete=? WHERE id=? ", [newState, id])
         const result = deleteAttendance[0].affectedRows ? 1 : 0
         return res.status(200).json({ status: result, message: result ? "Deleted" : ":Erro Marking Attendance  " })
 
@@ -298,7 +299,7 @@ export const getAllAttendance = async (req, res) => {
      a.status,
     a.date
   FROM attendance a
-  INNER JOIN faculty f ON a.faculty_id = f.id;
+  INNER JOIN faculty f ON a.faculty_id = f.id WHERE a.s_delete = 0 ;
     `);
 
         const result = rows.length ? 1 : 0;
@@ -392,6 +393,7 @@ export const getAllPayment = async (req, res) => {
 export const handelApprove = async (req, res) => {
     try {
         const { id, name, class_id } = req.body
+        console.log('req',req.body)
         const update = await db.query("UPDATE admission SET is_Approved =  1 WHERE id  = ?", [id])
         const createStudent = await db.query("INSERT INTO student (name,class_id,admission_id) VALUES (?,?,?)", [name, class_id, id])
 

@@ -1,5 +1,11 @@
 import mysql from "mysql2"
 
+// const db = await mysql.createPool({
+//     user:"root",
+//     password:"",
+//     database:"school",
+//     host:"localhost"
+// }).promise()
 const db = await mysql.createPool({
     user:"skyraantech_school_management",
     password:"p?Da3q1)6]bUXURy",
