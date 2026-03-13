@@ -44,17 +44,11 @@ export const getAllAdmissions = async (req, res) => {
 }
 
 
-
-
-
-
-
-
 //Student
 export const deleteStudent = async (req, res) => {
     try {
         const { id, admission_id } = req.body
-        const [data] = await db.query("SELECT * FROM student WHERE id  = ?", [id])
+        const [data] = await db.query("SELECT * FROM student WHERE id  = ?  ", [id])
         if (!data) {
             return res.status(200).json({ status: 0, message: "NO user Data Found", data })
         }
@@ -378,7 +372,8 @@ export const deletePayment = async (req, res) => {
 
 export const getAllPayment = async (req, res) => {
     try {
-        const [getAllPayment] = await db.query("SELECT p.id,c.id AS class_id,s.id AS stu_id,c.name As className,s.name As StudentName ,p.balance,p.total  AS total ,p.paid AS paid ,p.balance AS balance From  payment  AS p LEFT JOIN student  AS s ON s.id =p.stu_id LEFT JOIN class  AS c ON c.id=s.class_id")
+        const [getAllPayment] = await db.query("SELECT p.id,c.id AS class_id,s.id AS stu_id,c.name As className,s.name As StudentName ,p.created_at AS date,p.total  AS total ,p.paid AS paid ,p.balance AS balance From  payment  AS p LEFT JOIN student  AS s ON s.id =p.stu_id LEFT JOIN class  AS c ON c.id=s.class_id")
+       
         const result = getAllPayment.length ? 1 : 0
         return res.status(200).json({ result: result, message: result ? " Payment List " : " Error Fetching Payment List", data: getAllPayment })
 
